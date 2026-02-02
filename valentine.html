@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Valentine Surprise 💖</title>
+<style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background: linear-gradient(135deg, #ff758c, #ff7eb3);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        color: white;
+        text-align: center;
+    }
+    .box {
+        background: rgba(255,255,255,0.15);
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        width: 90%;
+        max-width: 400px;
+    }
+    h1 {
+        margin-bottom: 20px;
+    }
+    button {
+        padding: 12px 25px;
+        font-size: 18px;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        margin: 10px;
+    }
+    .yes {
+        background: #2ecc71;
+        color: white;
+    }
+    .no {
+        background: #e74c3c;
+        color: white;
+        position: absolute;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="box" id="page1">
+    <h1>💖 Happy Valentine My Love 💖</h1>
+    <button class="yes" onclick="nextPage()">Next ➜</button>
+</div>
+
+<div class="box" id="page2" style="display:none;">
+    <h1>💘 Will you be my Valentine? 💘</h1>
+    <button class="yes" onclick="finalPage()">YES ❤️</button>
+    <button class="no" id="noBtn">NO 💔</button>
+</div>
+
+<div class="box" id="page3" style="display:none;">
+    <h1>💞 Happy Valentine My Love 💞</h1>
+    <p>You made the best decision 😍<br>I Love You ❤️</p>
+</div>
+
+<script>
+    function nextPage() {
+        document.getElementById("page1").style.display = "none";
+        document.getElementById("page2").style.display = "block";
+    }
+
+    function finalPage() {
+        document.getElementById("page2").style.display = "none";
+        document.getElementById("page3").style.display = "block";
+    }
+
+    const noBtn = document.getElementById("noBtn");
+    noBtn.addEventListener("mouseover", () => {
+        const x = Math.random() * (window.innerWidth - 100);
+        const y = Math.random() * (window.innerHeight - 50);
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+    });
+</script>
+
+</body>
+</html>
